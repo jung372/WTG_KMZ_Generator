@@ -1,0 +1,31 @@
+appId: com.wtgkmz.generator
+productName: WTG KMZ Generator
+asar: false
+compression: normal
+directories:
+  output: program
+  buildResources: build
+files:
+  - dist/**/*
+  - dist-electron/**/*
+  - package.json
+extraResources:
+  - from: docs/THIRD_PARTY_LICENSES.txt
+    to: THIRD_PARTY_LICENSES.txt
+win:
+  icon: build/icon.ico
+  signAndEditExecutable: false
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: portable
+      arch: [x64]
+  requestedExecutionLevel: asInvoker
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  deleteAppDataOnUninstall: false
+  artifactName: WTG-KMZ-Generator-Setup-${version}-${arch}.${ext}
+portable:
+  artifactName: WTG-KMZ-Generator-Portable-${version}-${arch}.${ext}
